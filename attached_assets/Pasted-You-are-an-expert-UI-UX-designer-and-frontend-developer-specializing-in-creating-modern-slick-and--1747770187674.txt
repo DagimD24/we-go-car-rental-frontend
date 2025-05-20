@@ -1,0 +1,116 @@
+You are an expert UI/UX designer and frontend developer specializing in creating modern, slick, and visually appealing web applications using Tailwind CSS. Your task is to generate the HTML structure with appropriate Tailwind CSS classes for several key pages of a Car Rental System web application.
+Overall Design Ethos & Aesthetics:
+Modern & Slick: Think clean lines, ample whitespace, high-quality imagery, intuitive navigation, and a professional feel.
+User-Friendly: Interfaces should be intuitive, with clear calls to action and easy-to-understand layouts.
+Premium Feel: The design should evoke a sense of quality and trust, appropriate for a car rental service.
+Color Palette (Suggestion): Propose and use a modern and sophisticated color palette. Consider a primary accent color (e.g., a vibrant blue, deep teal, or energetic orange), a range of grays for text and backgrounds, and potentially a secondary accent color. Ensure good contrast for accessibility.
+Typography: Suggest and use a clean, legible sans-serif font pairing (e.g., Inter, Poppins, Montserrat). Ensure clear typographic hierarchy.
+Iconography: Use modern, minimalist icons (e.g., Heroicons or similar style) where appropriate.
+Imagery: Assume high-quality, professional car photos and lifestyle imagery. Use appropriate placeholder dimensions.
+Responsiveness: All generated UI must be fully responsive across mobile, tablet, and desktop screens.
+Subtle Interactions (Optional but Desired): Where appropriate, style elements to suggest interactivity (e.g., hover states for buttons and links, subtle shadows on cards).
+Dark Mode (Consideration): While not the primary request, if the chosen color palette easily adapts or if you can provide dark mode variants (e.g., dark:bg-gray-800), that would be a bonus.
+I. Global Components:
+Navbar:
+Logo placeholder on the left.
+Navigation links: "Cars", "Contact Us", "My Account" (visible if logged in), "Login/Register" (visible if not logged in).
+Language Switcher (Dropdown: English/Arabic).
+Currency Switcher (Dropdown: USD, EUR, Local Currency).
+Slight shadow or border to separate from content.
+Responsive hamburger menu for mobile.
+Modern styling, potentially slightly transparent or a solid color that complements the page.
+Footer:
+Essential links: "Terms & Conditions", "Privacy Policy", "Contact Us".
+Social media icons.
+Copyright notice.
+Clean and unobtrusive design.
+II. Specific Pages / Key Sections:
+A. Car Listing Page (/cars)
+Hero/Search Section (Optional, but good for a landing feel):
+Headline: "Find Your Perfect Ride" or similar.
+Potentially a simple search bar for car name/type.
+Filters Section:
+Cleanly designed sidebar or horizontal filter bar above the grid.
+Filter by Car Type (e.g., Sedan, SUV, Hatchback - use checkboxes or stylish buttons).
+Filter by Price Range (e.g., a dual-handle slider or input fields for min/max).
+Clear "Apply Filters" and "Reset Filters" buttons.
+Car Grid:
+Responsive grid (e.g., 1 column on mobile, 2 on tablet, 3-4 on desktop).
+Car Card Design (Crucial for visual appeal):
+High-quality image placeholder (e.g., aspect-video or aspect-[4/3]).
+Car Name (bold, prominent).
+Car Type (smaller, muted text).
+Price per day (clearly displayed, e.g., "$XX / day").
+Availability Badge: A small, visually distinct badge (e.g., green "Available", red "Unavailable" or greyed out).
+"View Details" or "Book Now" button (primary accent color).
+Modern card styling: rounded corners, subtle shadow on hover, clean separation of information.
+B. Car Details Page (/cars/[id])
+Image Carousel:
+Large primary image display.
+Thumbnails below or to the side for navigating multiple images.
+Clean navigation arrows.
+Car Information Section:
+Car Name (Large, prominent headline).
+Price per day.
+Type, Make, Model, Year, Engine, Fuel Type, Seats, Doors etc. (clearly laid out, perhaps in a two-column spec list or using definition lists). Use icons next to specs where appropriate (e.g., a seat icon, a fuel pump icon).
+Detailed description paragraph.
+Availability status.
+Booking Call-to-Action:
+Prominent "Book Now" button that would (conceptually) lead to the booking form/page or prompt login.
+C. Contact Us Page (/contact)
+Contact Form:
+Fields: Name, Email, Message.
+Modern input styling: clean borders, focus states, proper labels.
+"Send Message" button (primary accent color).
+Visually appealing layout, perhaps with an accompanying image or graphic.
+Shop Information Section:
+Embedded Google Map placeholder (indicate where this would go, e.g., a div with a specific aspect ratio or height).
+Shop Address and contact details clearly displayed.
+WhatsApp Link: A prominent button with the WhatsApp icon and text like "Chat on WhatsApp".
+D. Auth Pages (Login / Registration)
+Layout: Centered form on the page, clean background.
+Form Fields: Standard email, password, confirm password (for registration), full name, phone.
+Buttons: "Login", "Register", "Forgot Password?" link.
+Social login buttons (e.g., "Login with Google") as an option, styled consistently.
+Clear error message display areas.
+Links to switch between login and registration.
+E. User Profile Page (/profile)
+User Information Section:
+Display: Full Name, Email, Phone.
+"Edit Profile" button.
+Perhaps an avatar placeholder.
+Document Upload Section:
+Clear instructions.
+File input stylized as a modern button or drag-and-drop area.
+Information about currently uploaded document status (e.g., "Pending Verification", "Verified", "Upload Needed").
+Booking History (Placeholder):
+A section titled "My Bookings" with a placeholder indicating where a list or table of past/current bookings would appear.
+F. Booking Form (Conceptual on a dedicated page or modal after selecting a car)
+Date Selection:
+Clean react-datepicker style inputs for Start Date and End Date. Side-by-side or stacked neatly.
+Location & Services:
+Pick-up Location: Dropdown menu.
+Optional Services: Checkboxes (e.g., "GPS Navigation", "Baby Chair", "Additional Driver") with prices next to them.
+Price Summary:
+Dynamically updated section showing: Rental cost, Service costs, Total Price. Clearly itemized.
+Call to Action:
+"Proceed to Payment" or "Confirm Booking" button.
+Terms & Conditions checkbox: "I agree to the Terms and Conditions" with a link to view them.
+G. Terms & Conditions Modal/Page
+Modal Styling: Clean, centered modal with good readability.
+Content Area: Well-formatted text using react-markdown styling (headings, lists, paragraphs should be clear).
+"Close" or "Accept" buttons.
+Output Requirements:
+Provide the HTML structure with Tailwind CSS classes directly inline.
+For each page/section, please provide a self-contained block of HTML.
+Use placeholder images (e.g., https://via.placeholder.com/800x600 or similar, adjust dimensions as needed).
+Use placeholder text (Lorem Ipsum) for longer content.
+Focus on achieving the described modern and slick aesthetic.
+If you make strong design choices (e.g., a specific color palette), please briefly state them.
+Let's start with the Navbar and Footer (Global Components), and then the Car Listing Page (/cars). I will ask for other pages subsequently."
+How to use this prompt:
+Break it down: Don't give Gemini the entire prompt at once. It might produce too much code or lose context. Start with "Global Components" and one key page (like "Car Listing").
+Iterate: Review the output. If it's not quite right, give feedback: "This is good, but can we make the car cards have a slightly larger shadow on hover?" or "Could you try a different primary accent color, maybe a deep teal, for the buttons on the Car Listing page?"
+Be Specific: The more specific your feedback, the better Gemini can refine its output.
+Focus on Visuals: This prompt is geared towards the look and feel. You'll wire up the functionality (Next.js, Appwrite, React Query) later.
+This prompt sets a high bar for design quality and provides enough detail for Gemini to generate some impressive Tailwind CSS structures. Good luck!
