@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Filter } from "lucide-react";
+import PriceRangeSlider from "./price-range-slider";
 
 interface CarFiltersProps {
   onFilterChange: (filters: {
@@ -100,31 +100,14 @@ export default function CarFilters({ onFilterChange, className }: CarFiltersProp
       
       {/* Price Range Filter */}
       <div className="py-4 border-b border-gray-200">
-        <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-3">Price Range</h3>
-        <div className="space-y-3">
-          <div>
-            <Label htmlFor="min-price" className="block text-sm text-gray-700">Min Price ($)</Label>
-            <Input 
-              type="number" 
-              id="min-price" 
-              min="0" 
-              value={minPrice !== null ? minPrice : ''}
-              onChange={(e) => setMinPrice(e.target.value ? parseInt(e.target.value) : null)}
-              className="mt-1 block w-full"
-            />
-          </div>
-          <div>
-            <Label htmlFor="max-price" className="block text-sm text-gray-700">Max Price ($)</Label>
-            <Input 
-              type="number" 
-              id="max-price" 
-              min="0" 
-              value={maxPrice !== null ? maxPrice : ''}
-              onChange={(e) => setMaxPrice(e.target.value ? parseInt(e.target.value) : null)}
-              className="mt-1 block w-full"
-            />
-          </div>
-        </div>
+        <PriceRangeSlider
+          minValue={minPrice || 0}
+          maxValue={maxPrice || 200}
+          onRangeChange={(min, max) => {
+            setMinPrice(min);
+            setMaxPrice(max);
+          }}
+        />
       </div>
       
       {/* Features Filter */}
