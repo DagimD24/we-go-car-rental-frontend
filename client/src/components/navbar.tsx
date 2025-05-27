@@ -12,14 +12,14 @@ export default function Navbar() {
 
   const { data: user, isLoading } = useQuery({
     queryKey: ["/api/me"],
-    queryFn: () => apiRequest({ url: "/api/me", method: "GET" }),
+    queryFn: () => apiRequest("/api/me", "GET"),
     retry: false,
     staleTime: 0,
   });
 
   const logout = useMutation({
     mutationFn: async () => {
-      await apiRequest({ url: "/api/logout", method: "POST" });
+      await apiRequest("/api/logout", "POST");
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/me"] });
