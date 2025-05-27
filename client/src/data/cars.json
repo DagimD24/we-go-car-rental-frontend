@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "name": "Mercedes-Benz E-Class",
+    "type": "Luxury Sedan",
+    "price": 75,
+    "year": 2023,
+    "fuelType": "Diesel",
+    "transmission": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "features": ["Bluetooth Connection", "Navigation System", "Leather Seats", "Climate Control", "Parking Sensors", "Reverse Camera"],
+    "description": "The Mercedes-Benz E-Class is an elegant luxury sedan that offers exceptional comfort and advanced technology. Perfect for business trips or special occasions.",
+    "availability": "available",
+    "images": [
+      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1563720223185-11003d516935?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Toyota RAV4",
+    "type": "SUV",
+    "price": 65,
+    "year": 2023,
+    "fuelType": "Hybrid",
+    "transmission": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "luggage": 4,
+    "features": ["Bluetooth Connection", "Apple CarPlay", "Android Auto", "Backup Camera", "Cruise Control", "Lane Departure Warning"],
+    "description": "The Toyota RAV4 offers a perfect blend of comfort, practicality, and efficiency with its hybrid powertrain. Ideal for family trips or outdoor adventures.",
+    "availability": "available",
+    "images": [
+      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1594736797933-d0c5f4e65709?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1549399460-2b8ff1b72b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "BMW 3 Series",
+    "type": "Sport Sedan",
+    "price": 70,
+    "year": 2023,
+    "fuelType": "Petrol",
+    "transmission": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "features": ["Bluetooth Connection", "Navigation System", "Leather Seats", "Climate Control", "Parking Sensors", "Reverse Camera"],
+    "description": "The BMW 3 Series is the embodiment of a sporty sedan. With its powerful engine, responsive handling, and premium interior, it's an ideal choice for those who want both luxury and driving pleasure.",
+    "availability": "available",
+    "images": [
+      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1616422285623-13ff0162193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Volkswagen Golf GTI",
+    "type": "Hatchback",
+    "price": 55,
+    "year": 2023,
+    "fuelType": "Petrol",
+    "transmission": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "luggage": 2,
+    "features": ["Bluetooth Connection", "Apple CarPlay", "Android Auto", "Sport Seats", "Climate Control", "Rear View Camera"],
+    "description": "The Volkswagen Golf GTI combines practicality with driving fun. Its responsive handling and turbocharged engine make every drive enjoyable.",
+    "availability": "available",
+    "images": [
+      "https://images.unsplash.com/photo-1616422285623-13ff0162193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1494976688153-41c2aa9a8b87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Audi A6",
+    "type": "Luxury Sedan",
+    "price": 80,
+    "year": 2023,
+    "fuelType": "Diesel",
+    "transmission": "Automatic",
+    "seats": 5,
+    "doors": 4,
+    "luggage": 3,
+    "features": ["Bluetooth Connection", "Navigation System", "Leather Seats", "Climate Control", "Parking Sensors", "Reverse Camera"],
+    "description": "The Audi A6 is a premium luxury sedan featuring cutting-edge technology and elegant design. Perfect for corporate travel or luxury experiences.",
+    "availability": "limited",
+    "images": [
+      "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Mazda MX-5 Miata",
+    "type": "Convertible",
+    "price": 85,
+    "year": 2023,
+    "fuelType": "Petrol",
+    "transmission": "Manual",
+    "seats": 2,
+    "doors": 2,
+    "luggage": 1,
+    "features": ["Bluetooth Connection", "Leather Seats", "Climate Control", "Push Button Start", "Blind Spot Monitoring", "Lane Keeping Assist"],
+    "description": "The Mazda MX-5 Miata offers pure driving joy with its convertible top and nimble handling. Perfect for scenic coastal roads and weekend getaways.",
+    "availability": "unavailable",
+    "images": [
+      "https://images.unsplash.com/photo-1555626906-fcf10d6851b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1494976688153-41c2aa9a8b87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80",
+      "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+    ]
+  }
+]

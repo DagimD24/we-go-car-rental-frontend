@@ -13,20 +13,20 @@
   --card-foreground: 20 14.3% 4.1%;
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
-  --primary: 213 90% 45%;
-  --primary-foreground: 211 100% 99%;
+  --primary: 83 25% 35%;
+  --primary-foreground: 0 0% 98%;
   --secondary: 60 4.8% 95.9%;
   --secondary-foreground: 24 9.8% 10%;
-  --accent: 33 98% 56%;
-  --accent-foreground: 24 9.8% 10%;
+  --accent: 83 35% 45%;
+  --accent-foreground: 0 0% 98%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
   --ring: 20 14.3% 4.1%;
   --radius: 0.5rem;
   
   /* Chart colors */
-  --chart-1: 213 90% 45%;
-  --chart-2: 33 98% 56%;
+  --chart-1: 83 25% 35%;
+  --chart-2: 83 35% 45%;
   --chart-3: 202 88% 54%;
   --chart-4: 316 73% 52%;
   --chart-5: 142 76% 45%;
@@ -43,11 +43,11 @@
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
-  --primary: 213 90% 45%;
-  --primary-foreground: 211 100% 99%;
+  --primary: 83 25% 35%;
+  --primary-foreground: 0 0% 98%;
   --secondary: 240 3.7% 15.9%;
   --secondary-foreground: 0 0% 98%;
-  --accent: 33 98% 56%;
+  --accent: 83 35% 45%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
@@ -55,8 +55,8 @@
   --radius: 0.5rem;
   
   /* Chart colors (dark mode) */
-  --chart-1: 213 90% 45%;
-  --chart-2: 33 98% 56%;
+  --chart-1: 83 25% 35%;
+  --chart-2: 83 35% 45%;
   --chart-3: 202 88% 54%;
   --chart-4: 316 73% 52%;
   --chart-5: 142 76% 45%;
