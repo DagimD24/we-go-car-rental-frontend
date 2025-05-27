@@ -173,7 +173,7 @@ export default function CarsPage() {
               )}
               
               {/* Pagination */}
-              {!isLoading && totalPages > 1 && (
+              {!isLoading && (
                 <div className="mt-12 flex justify-center">
                   <Pagination 
                     currentPage={currentPage} 
