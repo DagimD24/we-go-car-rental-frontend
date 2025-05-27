@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { useQuery, useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { authService } from "@/lib/dataService";
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu, 
@@ -15,16 +15,18 @@ export default function Navbar() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
+  const queryClient = useQueryClient();
+  
   const { data: user, isLoading } = useQuery({
-    queryKey: ["/api/me"],
+    queryKey: ["currentUser"],
+    queryFn: () => authService.getCurrentUser(),
     retry: false
   });
   
   const logout = useMutation({
-    mutationFn: async () => {
-      await apiRequest("POST", "/api/logout", {});
-    },
+    mutationFn: () => authService.logout(),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["currentUser"] });
       window.location.href = "/";
     }
   });
@@ -123,20 +125,20 @@ export default function Navbar() {
       <div className={`sm:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="pt-2 pb-3 space-y-1">
           <Link href="/cars">
-            <a className={`${isActive("/cars") || isActive("/") ? "bg-primary-50 border-primary text-primary-700" : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"} block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}>
+            <span className={`${isActive("/cars") || isActive("/") ? "bg-primary-50 border-primary text-primary-700" : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"} block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer`}>
               Cars
-            </a>
+            </span>
           </Link>
           <Link href="/contact">
-            <a className={`${isActive("/contact") ? "bg-primary-50 border-primary text-primary-700" : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"} block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}>
+            <span className={`${isActive("/contact") ? "bg-primary-50 border-primary text-primary-700" : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"} block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer`}>
               Contact Us
-            </a>
+            </span>
           </Link>
           {user && (
             <Link href="/profile">
-              <a className={`${isActive("/profile") ? "bg-primary-50 border-primary text-primary-700" : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"} block pl-3 pr-4 py-2 border-l-4 text-base font-medium`}>
+              <span className={`${isActive("/profile") ? "bg-primary-50 border-primary text-primary-700" : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"} block pl-3 pr-4 py-2 border-l-4 text-base font-medium cursor-pointer`}>
                 My Account
-              </a>
+              </span>
             </Link>
           )}
           <div className="flex items-center justify-between px-4 py-2">

@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import CarCard from "@/components/car-card";
 import CarFilters from "@/components/car-filters";
 import Pagination from "@/components/pagination";
-import { Car } from "@shared/schema";
+import { carService, type Car } from "@/lib/dataService";
 
 export default function CarsPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -21,45 +21,18 @@ export default function CarsPage() {
   const [sortBy, setSortBy] = useState("price-asc");
   
   const { data: cars = [], isLoading } = useQuery<Car[]>({
-    queryKey: ["/api/cars"],
+    queryKey: ["cars", searchTerm, filters],
+    queryFn: () => carService.getFilteredCars({
+      searchTerm: searchTerm || undefined,
+      types: filters.types.length > 0 ? filters.types : undefined,
+      minPrice: filters.minPrice || undefined,
+      maxPrice: filters.maxPrice || undefined,
+      features: filters.features.length > 0 ? filters.features : undefined,
+    }),
   });
 
-  // Filter cars based on search term and filters
-  const filteredCars = cars.filter(car => {
-    // Search term filter
-    if (searchTerm && !car.name.toLowerCase().includes(searchTerm.toLowerCase()) && 
-        !car.type.toLowerCase().includes(searchTerm.toLowerCase())) {
-      return false;
-    }
-    
-    // Car type filter
-    if (filters.types.length > 0 && !filters.types.includes(car.type)) {
-      return false;
-    }
-    
-    // Price range filter
-    if (filters.minPrice !== null && car.price < filters.minPrice) {
-      return false;
-    }
-    if (filters.maxPrice !== null && car.price > filters.maxPrice) {
-      return false;
-    }
-    
-    // Features filter
-    if (filters.features.length > 0) {
-      const hasAllFeatures = filters.features.every(feature => {
-        if (feature === "Automatic") {
-          return car.transmission === "Automatic";
-        }
-        return Array.isArray(car.features) && car.features.includes(feature);
-      });
-      if (!hasAllFeatures) {
-        return false;
-      }
-    }
-    
-    return true;
-  });
+  // Use the filtered cars directly from the service
+  const filteredCars = cars;
 
   // Sort cars
   const sortedCars = [...filteredCars].sort((a, b) => {
