@@ -53,7 +53,18 @@ export default function CarsPage() {
   // Pagination
   const carsPerPage = 6;
   const totalPages = Math.ceil(sortedCars.length / carsPerPage);
-  const paginatedCars = sortedCars.slice((currentPage - 1) * carsPerPage, currentPage * carsPerPage);
+  const startIndex = (currentPage - 1) * carsPerPage;
+  const endIndex = startIndex + carsPerPage;
+  const paginatedCars = sortedCars.slice(startIndex, endIndex);
+  
+  console.log('Pagination Debug:', {
+    totalCars: sortedCars.length,
+    currentPage,
+    totalPages,
+    startIndex,
+    endIndex,
+    paginatedCarsCount: paginatedCars.length
+  });
   
   // Reset to first page when filters change
   useEffect(() => {
