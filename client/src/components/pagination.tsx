@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface PaginationProps {
   currentPage: number;
@@ -8,87 +8,115 @@ interface PaginationProps {
 }
 
 export default function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
-  const getPageNumbers = () => {
-    const pageNumbers = [];
-    
-    if (totalPages <= 7) {
-      // If less than 7 pages, show all
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
-      }
-    } else {
-      // Always include first page, last page, and pages around current
-      pageNumbers.push(1);
-      
-      if (currentPage > 3) {
-        pageNumbers.push('dots1');
-      }
-      
-      // Pages around current
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-      
-      for (let i = start; i <= end; i++) {
-        pageNumbers.push(i);
-      }
-      
-      if (currentPage < totalPages - 2) {
-        pageNumbers.push('dots2');
-      }
-      
-      pageNumbers.push(totalPages);
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      onPageChange(currentPage - 1);
     }
-    
-    return pageNumbers;
   };
 
-  return (
-    <nav className="inline-flex rounded-md shadow">
-      <Button
-        variant="outline"
-        className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-        onClick={() => onPageChange(Math.max(1, currentPage - 1))}
-        disabled={currentPage === 1}
-      >
-        <span className="sr-only">Previous</span>
-        <ChevronLeft className="h-5 w-5" />
-      </Button>
-      
-      {getPageNumbers().map((pageNumber, index) => {
-        if (pageNumber === 'dots1' || pageNumber === 'dots2') {
-          return (
-            <span 
-              key={`dots-${index}`}
-              className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700"
-            >
-              ...
-            </span>
-          );
-        }
-        
-        return (
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      onPageChange(currentPage + 1);
+    }
+  };
+
+  const renderPageNumbers = () => {
+    const pages = [];
+    
+    if (totalPages <= 8) {
+      // Show all pages if 8 or fewer
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(
           <Button
-            key={pageNumber}
-            variant={currentPage === pageNumber ? "default" : "outline"}
-            className={`relative inline-flex items-center px-4 py-2 border ${
-              currentPage === pageNumber ? 'border-primary-500 bg-primary-50 text-primary' : 'border-gray-300 bg-white text-gray-700'
-            } text-sm font-medium hover:bg-gray-50`}
-            onClick={() => onPageChange(pageNumber as number)}
+            key={i}
+            variant="ghost"
+            size="sm"
+            onClick={() => onPageChange(i)}
+            className={`mx-1 ${currentPage === i 
+              ? "text-primary font-bold bg-transparent hover:bg-transparent" 
+              : "text-gray-600 hover:text-primary hover:bg-transparent"
+            }`}
           >
-            {pageNumber}
+            {i}
           </Button>
         );
-      })}
+      }
+    } else {
+      // Show 1, 2, 3 ... last 3 pages for more than 8 pages
+      // First 3 pages
+      for (let i = 1; i <= 3; i++) {
+        pages.push(
+          <Button
+            key={i}
+            variant="ghost"
+            size="sm"
+            onClick={() => onPageChange(i)}
+            className={`mx-1 ${currentPage === i 
+              ? "text-primary font-bold bg-transparent hover:bg-transparent" 
+              : "text-gray-600 hover:text-primary hover:bg-transparent"
+            }`}
+          >
+            {i}
+          </Button>
+        );
+      }
+      
+      // Ellipsis
+      pages.push(
+        <span key="ellipsis" className="mx-2 text-gray-500">
+          ...
+        </span>
+      );
+      
+      // Last 3 pages
+      for (let i = totalPages - 2; i <= totalPages; i++) {
+        pages.push(
+          <Button
+            key={i}
+            variant="ghost"
+            size="sm"
+            onClick={() => onPageChange(i)}
+            className={`mx-1 ${currentPage === i 
+              ? "text-primary font-bold bg-transparent hover:bg-transparent" 
+              : "text-gray-600 hover:text-primary hover:bg-transparent"
+            }`}
+          >
+            {i}
+          </Button>
+        );
+      }
+    }
+    
+    return pages;
+  };
+
+  if (totalPages <= 1) return null;
+
+  return (
+    <div className="flex items-center justify-center space-x-2 py-8">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={handlePrevious}
+        disabled={currentPage === 1}
+        className="flex items-center hover:text-primary hover:bg-transparent"
+      >
+        <ChevronLeft className="h-4 w-4 mr-1" />
+        Previous
+      </Button>
+      
+      {renderPageNumbers()}
       
       <Button
         variant="outline"
-        className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
-        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
+        size="sm"
+        onClick={handleNext}
         disabled={currentPage === totalPages}
+        className="flex items-center hover:text-primary hover:bg-transparent"
       >
-        <span className="sr-only">Next</span>
-        <ChevronRight className="h-5 w-5" />
+        Next
+        <ChevronRight className="h-4 w-4 ml-1" />
       </Button>
-    </nav>
+    </div>
   );
 }

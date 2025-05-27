@@ -1,34 +1,29 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { authService } from "@/lib/dataService";
 import { Button } from "@/components/ui/button";
-import { 
-  DropdownMenu, 
-  DropdownMenuTrigger, 
-  DropdownMenuContent, 
-  DropdownMenuItem 
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown, Menu } from "lucide-react";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Menu, ChevronDown } from "lucide-react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { apiRequest, queryClient } from "@/lib/queryClient";
 
 export default function Navbar() {
-  const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-  const queryClient = useQueryClient();
-  
+  const [location] = useLocation();
+
   const { data: user, isLoading } = useQuery({
-    queryKey: ["currentUser"],
-    queryFn: () => authService.getCurrentUser(),
-    retry: false
+    queryKey: ["/api/me"],
+    queryFn: () => apiRequest({ url: "/api/me", method: "GET" }),
+    retry: false,
+    staleTime: 0,
   });
-  
+
   const logout = useMutation({
-    mutationFn: () => authService.logout(),
+    mutationFn: async () => {
+      await apiRequest({ url: "/api/logout", method: "POST" });
+    },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["currentUser"] });
-      window.location.href = "/";
-    }
+      queryClient.invalidateQueries({ queryKey: ["/api/me"] });
+    },
   });
 
   const isActive = (path: string) => {
@@ -38,35 +33,34 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
-              <Link href="/">
-                <a className="text-primary font-bold text-2xl">CarRental</a>
-              </Link>
-            </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-8 h-full">
-              <Link href="/cars">
-                <span className={`${isActive("/cars") || isActive("/") ? "text-primary font-bold" : "text-gray-600 hover:text-primary"} inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors duration-200`}>
-                  Cars
-                </span>
-              </Link>
-              <Link href="/contact">
-                <span className={`${isActive("/contact") ? "text-primary font-bold" : "text-gray-600 hover:text-primary"} inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors duration-200`}>
-                  Contact Us
-                </span>
-              </Link>
-              {user && (
-                <Link href="/profile">
-                  <span className={`${isActive("/profile") ? "text-primary font-bold" : "text-gray-600 hover:text-primary"} inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors duration-200`}>
-                    My Account
-                  </span>
-                </Link>
-              )}
-            </div>
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link href="/">
+              <span className="text-primary font-bold text-2xl cursor-pointer">CarRental</span>
+            </Link>
           </div>
           
-          <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-4">
+          <div className="hidden sm:flex sm:items-center sm:space-x-8">
+            <Link href="/cars">
+              <span className={`${isActive("/cars") || isActive("/") ? "text-primary font-bold" : "text-gray-600 hover:text-primary"} inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors duration-200`}>
+                Cars
+              </span>
+            </Link>
+            <Link href="/contact">
+              <span className={`${isActive("/contact") ? "text-primary font-bold" : "text-gray-600 hover:text-primary"} inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors duration-200`}>
+                Contact Us
+              </span>
+            </Link>
+            {user && (
+              <Link href="/profile">
+                <span className={`${isActive("/profile") ? "text-primary font-bold" : "text-gray-600 hover:text-primary"} inline-flex items-center px-4 py-2 text-sm font-medium cursor-pointer transition-colors duration-200`}>
+                  My Account
+                </span>
+              </Link>
+            )}
+          </div>
+          
+          <div className="hidden sm:flex sm:items-center sm:space-x-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center text-sm text-gray-500 hover:text-gray-700">
@@ -75,10 +69,10 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>English</DropdownMenuItem>
-                <DropdownMenuItem>Arabic</DropdownMenuItem>
-                <DropdownMenuItem>French</DropdownMenuItem>
-                <DropdownMenuItem>Spanish</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">English</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">Arabic</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">French</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">Spanish</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             
@@ -90,10 +84,10 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem>USD</DropdownMenuItem>
-                <DropdownMenuItem>EUR</DropdownMenuItem>
-                <DropdownMenuItem>GBP</DropdownMenuItem>
-                <DropdownMenuItem>AED</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">USD</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">EUR</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">GBP</DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">AED</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             
@@ -145,49 +139,44 @@ export default function Navbar() {
             <div className="flex space-x-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center text-sm text-gray-500">
+                  <Button variant="ghost" className="flex items-center text-sm text-gray-500 hover:text-gray-700">
                     <span>English</span>
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  <DropdownMenuItem>English</DropdownMenuItem>
-                  <DropdownMenuItem>Arabic</DropdownMenuItem>
-                  <DropdownMenuItem>French</DropdownMenuItem>
-                  <DropdownMenuItem>Spanish</DropdownMenuItem>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">English</DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">Arabic</DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">French</DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">Spanish</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center text-sm text-gray-500">
+                  <Button variant="ghost" className="flex items-center text-sm text-gray-500 hover:text-gray-700">
                     <span>USD</span>
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  <DropdownMenuItem>USD</DropdownMenuItem>
-                  <DropdownMenuItem>EUR</DropdownMenuItem>
-                  <DropdownMenuItem>GBP</DropdownMenuItem>
-                  <DropdownMenuItem>AED</DropdownMenuItem>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">USD</DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">EUR</DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">GBP</DropdownMenuItem>
+                  <DropdownMenuItem className="hover:bg-transparent hover:text-primary focus:bg-transparent focus:text-primary">AED</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-          </div>
-          <div className="mt-3 px-3">
+            
             {isLoading ? (
-              <div className="w-full h-10 bg-gray-200 animate-pulse rounded-md"></div>
+              <div className="w-24 h-8 bg-gray-200 animate-pulse rounded-md"></div>
             ) : user ? (
-              <Button 
-                variant="destructive" 
-                onClick={() => logout.mutate()} 
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium"
-              >
+              <Button variant="destructive" onClick={() => logout.mutate()} className="px-4 py-2 rounded-md text-sm font-medium">
                 Logout
               </Button>
             ) : (
               <Link href="/login">
-                <Button className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium">
+                <Button className="px-4 py-2 rounded-md text-sm font-medium">
                   Login / Register
                 </Button>
               </Link>

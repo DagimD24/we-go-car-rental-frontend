@@ -171,6 +171,224 @@ export class MemStorage implements IStorage {
           "https://pixabay.com/get/g65c2f9646175917ae21805ab8769ff21cc6ce2e16e23a2b0e71e836a52e20c8374b24638beb6b07ef716a3e118159900bc18c17035dc1d13da6d65a91f399828_1280.jpg",
           "https://pixabay.com/get/gf04db82b17505a3f5936afb820726f6cdbab92523fdd20a3164b9e84f2893f3649fe07f7a5eedc2399d34c5dfee451da5a0e918460e29f5732dba882b8c2b1b3_1280.jpg"
         ]
+      },
+      // Page 2 cars
+      {
+        name: "Honda Civic",
+        type: "Compact",
+        price: 45,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Automatic",
+        seats: 5,
+        doors: 4,
+        luggage: 2,
+        features: ["Bluetooth Connection", "Apple CarPlay", "Android Auto", "Backup Camera", "Cruise Control"],
+        description: "The Honda Civic is a reliable and fuel-efficient compact car, perfect for city driving and daily commutes.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Ford Mustang",
+        type: "Sport Coupe",
+        price: 95,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Manual",
+        seats: 4,
+        doors: 2,
+        luggage: 2,
+        features: ["Bluetooth Connection", "Navigation System", "Premium Audio", "Performance Package", "Track Apps"],
+        description: "The iconic Ford Mustang delivers thrilling performance and classic American muscle car styling.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Jeep Wrangler",
+        type: "SUV",
+        price: 80,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Automatic",
+        seats: 5,
+        doors: 4,
+        luggage: 3,
+        features: ["4WD", "Removable Doors", "Removable Roof", "Rock Rails", "Skid Plates", "Trail Rated"],
+        description: "The Jeep Wrangler is built for adventure with unmatched off-road capability and iconic design.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Tesla Model 3",
+        type: "Electric Sedan",
+        price: 85,
+        year: 2023,
+        fuelType: "Electric",
+        transmission: "Automatic",
+        seats: 5,
+        doors: 4,
+        luggage: 3,
+        features: ["Autopilot", "Supercharging", "Over-the-Air Updates", "Premium Audio", "Glass Roof", "Mobile Connector"],
+        description: "The Tesla Model 3 combines cutting-edge electric technology with minimalist luxury design.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Porsche 911",
+        type: "Sports Car",
+        price: 150,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Automatic",
+        seats: 4,
+        doors: 2,
+        luggage: 1,
+        features: ["Sport Chrono Package", "PASM", "Navigation", "Bose Audio", "Sport Exhaust", "Launch Control"],
+        description: "The legendary Porsche 911 offers uncompromising performance and timeless sports car design.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Subaru Outback",
+        type: "Wagon",
+        price: 60,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "CVT",
+        seats: 5,
+        doors: 5,
+        luggage: 4,
+        features: ["All-Wheel Drive", "X-Mode", "EyeSight Safety", "Roof Rails", "Power Liftgate", "Heated Seats"],
+        description: "The Subaru Outback combines SUV capability with wagon practicality for outdoor adventures.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      // Page 3 cars
+      {
+        name: "Range Rover Sport",
+        type: "Luxury SUV",
+        price: 120,
+        year: 2023,
+        fuelType: "Hybrid",
+        transmission: "Automatic",
+        seats: 7,
+        doors: 5,
+        luggage: 4,
+        features: ["Terrain Response", "Air Suspension", "Meridian Audio", "Panoramic Roof", "Wade Sensing", "Configurable Dynamics"],
+        description: "The Range Rover Sport delivers luxury and capability with advanced terrain management systems.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1494976064148-d3e514fb9639?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1494976064148-d3e514fb9639?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Lexus RX",
+        type: "Luxury SUV",
+        price: 90,
+        year: 2023,
+        fuelType: "Hybrid",
+        transmission: "CVT",
+        seats: 5,
+        doors: 5,
+        luggage: 3,
+        features: ["Lexus Safety System", "Mark Levinson Audio", "Panoramic View Monitor", "Wireless Charging", "Head-Up Display", "Remote Touch"],
+        description: "The Lexus RX provides refined luxury with exceptional reliability and hybrid efficiency.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1494976064148-d3e514fb9639?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1494976064148-d3e514fb9639?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Chevrolet Camaro",
+        type: "Sport Coupe",
+        price: 75,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Manual",
+        seats: 4,
+        doors: 2,
+        luggage: 2,
+        features: ["Performance Data Recorder", "Magnetic Ride Control", "Brembo Brakes", "Launch Control", "Line Lock", "Competition Mode"],
+        description: "The Chevrolet Camaro delivers raw American muscle with modern performance technology.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Mini Cooper",
+        type: "Compact",
+        price: 55,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Manual",
+        seats: 4,
+        doors: 2,
+        luggage: 1,
+        features: ["John Cooper Works Package", "Union Jack Tail Lights", "Digital Cockpit", "Wireless Charging", "Harman Kardon Audio", "Dynamic Damper Control"],
+        description: "The Mini Cooper offers distinctive British style with go-kart handling and premium features.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Cadillac Escalade",
+        type: "Luxury SUV",
+        price: 140,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Automatic",
+        seats: 8,
+        doors: 5,
+        luggage: 5,
+        features: ["Magnetic Ride Control", "38-inch OLED Display", "AKG Audio", "Super Cruise", "Air Ride Suspension", "Night Vision"],
+        description: "The Cadillac Escalade represents the pinnacle of American luxury with commanding presence and technology.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1494976064148-d3e514fb9639?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1494976064148-d3e514fb9639?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
+      },
+      {
+        name: "Nissan GT-R",
+        type: "Sports Car",
+        price: 160,
+        year: 2023,
+        fuelType: "Petrol",
+        transmission: "Automatic",
+        seats: 4,
+        doors: 2,
+        luggage: 2,
+        features: ["ATTESA E-TS", "VDC-R", "Launch Control", "Bilstein DampTronic", "Bose Audio", "Track Pack"],
+        description: "The Nissan GT-R delivers supercar performance with advanced all-wheel drive technology.",
+        availability: "available",
+        images: [
+          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80",
+          "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675&q=80"
+        ]
       }
     ];
     
