@@ -21,18 +21,54 @@ export default function CarsPage() {
   const [sortBy, setSortBy] = useState("price-asc");
   
   const { data: cars = [], isLoading } = useQuery<Car[]>({
-    queryKey: ["cars", searchTerm, filters],
-    queryFn: () => carService.getFilteredCars({
-      searchTerm: searchTerm || undefined,
-      types: filters.types.length > 0 ? filters.types : undefined,
-      minPrice: filters.minPrice || undefined,
-      maxPrice: filters.maxPrice || undefined,
-      features: filters.features.length > 0 ? filters.features : undefined,
-    }),
+    queryKey: ["cars"],
+    queryFn: async () => {
+      const response = await fetch('/api/cars');
+      if (!response.ok) {
+        throw new Error('Failed to fetch cars');
+      }
+      return response.json();
+    },
   });
 
-  // Use the filtered cars directly from the service
-  const filteredCars = cars;
+  // Apply client-side filtering
+  const filteredCars = cars.filter(car => {
+    // Search term filter
+    if (searchTerm) {
+      const searchLower = searchTerm.toLowerCase();
+      if (!car.name.toLowerCase().includes(searchLower) && 
+          !car.type.toLowerCase().includes(searchLower)) {
+        return false;
+      }
+    }
+    
+    // Type filter
+    if (filters.types.length > 0) {
+      if (!filters.types.includes(car.type)) {
+        return false;
+      }
+    }
+    
+    // Price filter
+    if (filters.minPrice !== null && car.price < filters.minPrice) {
+      return false;
+    }
+    if (filters.maxPrice !== null && car.price > filters.maxPrice) {
+      return false;
+    }
+    
+    // Features filter
+    if (filters.features.length > 0) {
+      const hasAllFeatures = filters.features.every(feature => 
+        car.features.includes(feature)
+      );
+      if (!hasAllFeatures) {
+        return false;
+      }
+    }
+    
+    return true;
+  });
 
   // Sort cars
   const sortedCars = [...filteredCars].sort((a, b) => {
